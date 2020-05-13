@@ -1,4 +1,6 @@
-# ignore venv dir
+# bloody hell, mac!
+/.DS_Store
+# ignore dirs
 /venv
 /resource
 /output
