@@ -3,6 +3,7 @@
 # consult documentation https://docs.python.org/3/library/csv.html
 import csv
 from pprint import pprint
+import sys
 
 # make dict of all clubs list from given csv file
 # returns a dict, mapping club -> list of its members
@@ -57,7 +58,13 @@ def write_clubs_csv(clubname, memlist, dir):
     wtr.writerow(["인원수", num_member])
 
 def main():
-  clubs_data = load_clubs_data_from("resource/UserRequest-2020-05-11.csv")
+  # not enough args
+  if len(sys.argv) <= 1:
+    print("Please provide filename in cmdargs")
+    return
+  # get filename from first arg
+  filename = sys.argv[1]
+  clubs_data = load_clubs_data_from(filename)
   stud_data = stud_list_from_clubs_data(clubs_data)
   pprint("총인원수:{n}".format(n=len(stud_data)))
   for clubname, memlist in clubs_data.items():
