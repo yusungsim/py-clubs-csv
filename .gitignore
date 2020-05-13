@@ -1,3 +1,4 @@
 # ignore venv dir
 /venv
 /resource
+/output
